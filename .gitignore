@@ -1,0 +1,36 @@
+# Environnement virtuel
+venv/
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Fichiers temporaires
+*.log
+*.tmp
+*.swp
+*.bak
+
+# Modèles ML
+models/*.pkl
+models/*.joblib
+models/*.json
+
+# Données locales
+data/*.csv
+data/*.xlsx
+
+# Notebooks temporaires
+*.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
