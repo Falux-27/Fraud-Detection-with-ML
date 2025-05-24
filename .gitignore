@@ -20,8 +20,7 @@ models/*.joblib
 models/*.json
 
 # Données locales
-data/*.csv
-data/*.xlsx
+data/
 
 # Notebooks temporaires
 *.ipynb_checkpoints

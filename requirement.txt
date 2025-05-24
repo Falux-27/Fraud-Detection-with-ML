@@ -1,0 +1,44 @@
+ # Backend API
+fastapi
+uvicorn
+
+# Data manipulation
+pandas
+numpy
+
+# Base de données
+psycopg2-binary  # pour PostgreSQL
+
+# Machine Learning
+scikit-learn
+xgboost
+joblib
+
+# Deep Learning
+tensorflow  # ou torch selon ton choix de framework DL
+
+# WebSocket support (temps réel)
+websockets
+
+# Visualisation & Monitoring
+matplotlib
+seaborn
+plotly
+
+# Génération de données synthétiques
+faker
+
+# Logging, tests, monitoring
+loguru
+pytest
+httpx
+python-multipart  # pour gérer les fichiers dans FastAPI
+prometheus-client  # pour métriques système
+pydantic  # gestion des schémas
+
+# Déploiement
+gunicorn
+python-dotenv
+
+# CI/CD, performance
+locust  # tests de charge
