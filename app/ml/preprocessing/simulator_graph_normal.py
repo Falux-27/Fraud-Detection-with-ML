@@ -20,7 +20,7 @@ if not template_graphs:
     print("Erreur: Le fichier JSON ne contient pas de données de graphes valides.")
     exit()
 
-# Analyse des données existantes pour la génération réaliste ---
+# Analyse des données existantes pour la génération réaliste 
 def analyze_existing_data(graphs):
     """Analyse les données existantes pour créer des distributions réalistes."""
     bank_ids = set()
@@ -53,24 +53,22 @@ def analyze_existing_data(graphs):
 data_stats = analyze_existing_data(template_graphs)
 print(f"Analyse terminée: {len(data_stats['bank_ids'])} banques, {len(data_stats['currencies'])} devises")
 
-#Fonction de génération améliorée ---
+#Fonction de génération améliorée  
 def generate_synthetic_graph(template_graph, data_stats, graph_id):
     """Génère un nouveau graphe synthétique basé sur un graphe existant avec des variations réalistes."""
     new_graph = nx.MultiDiGraph()
     
-    #Créer un mappage de nœuds avec des IDs plus réalistes
     original_nodes = list(template_graph.nodes(data=True))
     node_map = {}
     
     for i, (node_id, node_data) in enumerate(original_nodes):
         new_account_id = f"ACC_{graph_id:06d}_{i:03d}_{random.randint(1000, 9999)}"
         node_map[node_id] = new_account_id
-        
-        #Assigner une banque existante de manière cohérente
+
         bank_id = random.choice(data_stats['bank_ids']) if data_stats['bank_ids'] else random.randint(100, 1000)
         new_graph.add_node(new_account_id, bank=bank_id, account=new_account_id)
 
-    #Créer de nouvelles arêtes avec des variations réalistes
+    #Créer de nouvelles arêtes avec des variations 
     for u, v, edge_data in template_graph.edges(data=True):
         new_u = node_map[u]
         new_v = node_map[v]
@@ -99,7 +97,7 @@ def generate_synthetic_graph(template_graph, data_stats, graph_id):
         to_bank = new_graph.nodes[new_v]['bank']
       
         receiving_currency = random.choice(data_stats['currencies']) if data_stats['currencies'] else 'US Dollar'
-        payment_currency = receiving_currency  # Garder la même devise pour cohérence
+        payment_currency = receiving_currency 
         payment_format = random.choice(data_stats['payment_formats']) if data_stats['payment_formats'] else 'Credit Card'
         
         new_edge_data = {
@@ -110,7 +108,7 @@ def generate_synthetic_graph(template_graph, data_stats, graph_id):
             "To_Account": new_v,
             "Amount Received": round(new_amount, 2),
             "Receiving Currency": receiving_currency,
-            "Amount Paid": round(new_amount, 2),  # Même montant pour cohérence
+            "Amount Paid": round(new_amount, 2), 
             "Payment Currency": payment_currency,
             "Payment Format": payment_format,
             "Is Laundering": 0,
