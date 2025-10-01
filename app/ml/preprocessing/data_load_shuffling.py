@@ -2,7 +2,7 @@ import random
 import torch
 import os
 
-# Définissez le chemin du fichier que vous avez sauvegardé
+# Définir le chemin du fichier que vous avez sauvegardé
 dossier_sortie = r"C:\Users\HP\Desktop\Fraud_detection_project\data\data_processed"
 nom_fichier_entree = "dataset_final_enriched.pt"
 chemin_du_fichier = os.path.join(dossier_sortie, nom_fichier_entree)
@@ -23,7 +23,7 @@ for data_obj in dataset[:20]:
     print(data_obj.y.item(), end=" ")
 print("\n")
 
-# Sauvegardez le jeu de données mélangé pour éviter de le refaire à chaque fois
+# Sauvegardez le jeu de données mélangé  
 nom_fichier_shuffled = "dataset_final_shuffled.pt"
 chemin_shuffled = os.path.join(dossier_sortie, nom_fichier_shuffled)
 torch.save(dataset, chemin_shuffled)

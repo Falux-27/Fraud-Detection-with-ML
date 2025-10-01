@@ -2,6 +2,7 @@ import pandas as pd
 import networkx as nx 
 import random 
 import pickle
+import json
 
 chemins = [
     r"data\IBM Transactions\HI-Large_Trans.csv",
@@ -50,7 +51,7 @@ max_tentatives = 20000
 normal_tx = [(u, v) for u, v, data in graph_global.edges(data=True) if data.get("Is Laundering") == 0]
 
 if not normal_tx:
-    print("Aucune transaction normale trouvée. Impossible d'extraire des sous-graphes.")
+    print("Aucune transaction normale trouvée.")
 else:
     #Boucle pour un nombre limité de tentatives
     for _ in range(max_tentatives):
@@ -76,8 +77,6 @@ else:
             break
 
 print(f"Nombre de sous-graphes normaux extraits : {len(sous_graph_normaux)}")
-    
-import json
 
 
 # Afficher les informations du premier sous-graphe
@@ -94,7 +93,7 @@ for graph_info in sous_graph_normaux:
         "label": graph_info["label"]
     })
 
-# Convertir la liste complète en chaîne JSON et l'enregistrer dans un fichier
+#Convertir la liste complète en chaîne JSON et l'enregistrer dans un fichier
 with open(r"C:\Users\HP\Desktop\Fraud_detection_project\data\IBM Transactions\Graph_Trans_normaux2.json", "w") as f:
     json.dump(all_subgraphs_json, f, indent=4)
     

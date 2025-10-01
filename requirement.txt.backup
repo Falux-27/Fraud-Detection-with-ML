@@ -1,0 +1,69 @@
+ # Backend API
+fastapi
+uvicorn
+
+# Data manipulation
+pandas
+numpy
+
+# Base de données
+psycopg2-binary  # pour PostgreSQL
+
+# Machine Learning
+scikit-learn
+xgboost
+joblib
+
+# Deep Learning
+tensorflow  # ou torch selon ton choix de framework DL
+
+# WebSocket support (temps réel)
+websockets
+
+# Visualisation & Monitoring
+matplotlib
+seaborn
+plotly
+
+# Génération de données synthétiques
+faker
+
+# Logging, tests, monitoring
+loguru
+pytest
+httpx
+python-multipart  # pour gérer les fichiers dans FastAPI
+prometheus-client  # pour métriques système
+pydantic  # gestion des schémas
+
+# Déploiement
+gunicorn
+python-dotenv
+
+# CI/CD, performance
+locust  # tests de charge
+# --- Web framework
+fastapi==0.110.0
+uvicorn[standard]==0.29.0
+
+# --- Base de données
+sqlalchemy==2.0.30
+pymysql==1.1.0  # ou mysql-connector-python
+
+# --- Machine Learning
+scikit-learn==1.4.2
+joblib==1.4.0
+
+# --- Traitement de données
+pandas==2.2.2
+numpy==1.26.4
+
+# --- Sérialisation / Modèles Pydantic
+pydantic==2.7.1
+pydantic-settings==2.2.1
+
+# --- Tests (optionnel)
+pytest==8.2.1
+
+# --- Utilitaires (optionnel mais utile)
+python-dotenv==1.0.1
